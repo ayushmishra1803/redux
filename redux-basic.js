@@ -19,12 +19,14 @@ const rootReducer=(state=inistate,action)=>{
     return state;
 }
 const store=redux.createStore(rootReducer);
-console.log(store.getState());
+store.subscribe(() => {
+	console.log(store.getState());
+});
 store.dispatch({
     type:"INC"
 });
-console.log(store.getState());
+
 store.dispatch({
 	type: "INCTEN",value:154
 });
-console.log(store.getState());
+

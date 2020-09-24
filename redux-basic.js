@@ -3,7 +3,28 @@ const inistate={
     counter:1
 }
 const rootReducer=(state=inistate,action)=>{
-return state
+    if (action.type === "INC"){
+        return{
+            ...state,
+            counter:state.counter+1
+        
+        }
+    } 
+      if (action.type === "INCTEN") {
+				return {
+					...state,
+					counter: state.counter + action.value,
+				};
+			} 
+    return state;
 }
 const store=redux.createStore(rootReducer);
+console.log(store.getState());
+store.dispatch({
+    type:"INC"
+});
+console.log(store.getState());
+store.dispatch({
+	type: "INCTEN",value:154
+});
 console.log(store.getState());

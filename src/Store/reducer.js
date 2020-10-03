@@ -1,5 +1,6 @@
 const intialState = {
 	counter: 0,
+	result: [],
 };
 
 const reducer = (state = intialState, action) => {
@@ -25,6 +26,17 @@ const reducer = (state = intialState, action) => {
 			counter: state.counter - 5,
 		};
 	}
+	if (action.type === "store") {
+        const result=[]
+        result.push(state.counter);
+        return {
+					...state,
+					result:result,
+				};
+    }
+    if (action.type === "DeleteStored") {
+
+		}
 	return state;
 };
 export default reducer;

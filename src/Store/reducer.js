@@ -5,9 +5,8 @@ const intialState = {
 
 const reducer = (state = intialState, action) => {
 	if (action.type === "Inc") {
-       
 		return {
-            ...state,
+			...state,
 			counter: state.counter + 1,
 		};
 	}
@@ -31,11 +30,9 @@ const reducer = (state = intialState, action) => {
 		};
 	}
 	if (action.type === "store") {
-		const result = [];
-		result.push(state.counter);
 		return {
 			...state,
-			result: result,
+			result: state.result.concat(state.counter),
 		};
 	}
 	if (action.type === "DeleteStored") {

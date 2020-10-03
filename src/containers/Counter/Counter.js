@@ -36,6 +36,8 @@ class Counter extends Component {
 	};
 
 	render() {
+        
+
 		return (
 			<div>
 				<CounterOutput value={this.props.ctr} />
@@ -50,13 +52,17 @@ class Counter extends Component {
 				<CounterControl label="Add 5" clicked={this.props.OnIncrement5} />
 				<CounterControl label="Subtract 5" clicked={this.props.OnDecrement5} />
 				<button onClick={this.props.Store}>Store Result</button>
+				<ul>{this.props.StoredResult.map((re,index)=>{
+                  return  <li key={index}> {re}</li>
+                })}</ul>
 			</div>
 		);
 	}
 }
 const mapStateToProps = (state) => {
 	return {
-		ctr: state.counter,
+        ctr: state.counter,
+        StoredResult:state.result
 	};
 };
 const mapDispatchAction = (dispatch) => {

@@ -5,38 +5,41 @@ const intialState = {
 
 const reducer = (state = intialState, action) => {
 	if (action.type === "Inc") {
-		console.log("hello");
+       
 		return {
+            ...state,
 			counter: state.counter + 1,
 		};
 	}
 	if (action.type === "Dec") {
 		return {
+			...state,
 			counter: state.counter - 1,
 		};
 	}
 	if (action.type === "inc5") {
 		return {
+			...state,
 			counter: state.counter + 5,
 		};
 	}
 
 	if (action.type === "dec5") {
 		return {
+			...state,
 			counter: state.counter - 5,
 		};
 	}
 	if (action.type === "store") {
-        const result=[]
-        result.push(state.counter);
-        return {
-					...state,
-					result:result,
-				};
-    }
-    if (action.type === "DeleteStored") {
-
-		}
+		const result = [];
+		result.push(state.counter);
+		return {
+			...state,
+			result: result,
+		};
+	}
+	if (action.type === "DeleteStored") {
+	}
 	return state;
 };
 export default reducer;

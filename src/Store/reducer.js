@@ -37,8 +37,16 @@ const reducer = (state = intialState, action) => {
 	}
 	if (action.type === "DeleteStored") {
 		let newResult = state.result;
-
-		console.log(newResult);
+		let FinalArray = [];
+		newResult.map((re) => {
+			if (re.id !== action.value.id) {
+				FinalArray.push(re);
+			}
+		});
+		return {
+			...state,
+			result: FinalArray,
+		};
 	}
 	return state;
 };

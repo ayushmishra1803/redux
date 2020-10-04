@@ -53,9 +53,10 @@ class Counter extends Component {
 				<ul>
 					{this.props.StoredResult.map((re, index) => {
 						return (
-							<li key={index} onClick={this.props.removeResult}>
+							<li key={index}>
 								{" "}
-								{re.value}
+								{re.value}&nbsp;
+								<button onClick={()=>this.props.removeResult(re)}>Remove</button>
 							</li>
 						);
 					})}
@@ -77,7 +78,7 @@ const mapDispatchAction = (dispatch) => {
 		OnDecrement5: () => dispatch({ type: "dec5" }),
 		OnIncrement5: () => dispatch({ type: "inc5" }),
 		Store: () => dispatch({ type: "store" }),
-		removeResult: () => dispatch({ type: "DeleteStored" }),
+		removeResult: (re) => dispatch({ type: "DeleteStored",value:re }),
 	};
 };
 export default connect(mapStateToProps, mapDispatchAction)(Counter);

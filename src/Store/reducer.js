@@ -36,6 +36,9 @@ const reducer = (state = intialState, action) => {
 		};
 	}
 	if (action.type === "DeleteStored") {
+		let newResult = state.result;
+
+		console.log(newResult);
 	}
 	return state;
 };

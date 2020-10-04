@@ -32,7 +32,7 @@ const reducer = (state = intialState, action) => {
 	if (action.type === "store") {
 		return {
 			...state,
-			result: state.result.concat(state.counter),
+			result: state.result.concat({ id: new Date(), value: state.counter }),
 		};
 	}
 	if (action.type === "DeleteStored") {
